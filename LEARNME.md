@@ -161,5 +161,10 @@ const customConfig = {
 export const system = createSystem(customConfig);
 ```
 
-
 # Stage 5: Color mode switch
+## Add Switch Component
+```bash
+npx @chakra-ui/cli snippet add switch
+```
+
+## modern updates: useColorMode, colorPalette, file - ColorModeSwitch
