@@ -89,3 +89,5 @@ export default App;
 ## 🧹 Cleaned Up Default CSS
 
 Removed all default Vite styles from `src/index.css` to fully adopt Chakra theming.
+
+# Stage 3: Create components
