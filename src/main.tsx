@@ -1,12 +1,17 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { ChakraProvider } from "@chakra-ui/react"
 import { Provider } from "@/components/ui/provider"
-import React from "react"
-import ReactDOM from "react-dom/client"
-import App from "./App"
+import { system } from './theme'
+import App from './App'
+import './index.css'
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Provider>
-      <App />
-    </Provider>
+    <ChakraProvider value={system}>
+      <Provider defaultTheme="dark">
+        <App />
+      </Provider>
+    </ChakraProvider>
   </React.StrictMode>,
 )
