@@ -9,6 +9,7 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
+     
       // templateColumns={{
       //   base: '1fr',
       //   lg: '250px 1fr'
@@ -18,10 +19,10 @@ function App() {
         <NavBar />
       </GridItem>
 
-      <GridItem area="aside" bg="gold">
+      <GridItem area="aside"  padding='10px'>
         Aside
       </GridItem>
-      <GridItem area="main" bg="dodgerblue">
+      <GridItem area="main"  padding='10px' >
         Main
       </GridItem>
     </Grid>

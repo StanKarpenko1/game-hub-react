@@ -91,3 +91,75 @@ export default App;
 Removed all default Vite styles from `src/index.css` to fully adopt Chakra theming.
 
 # Stage 3: Create components
+
+## Created component NavBar
+```tsx
+import { HStack, Image, Text } from '@chakra-ui/react'
+import logo from '../assets/logo.webp'
+
+const NavBar = () => {
+  return (
+    <HStack>
+        <Image src={logo} boxSize={'60px'} />
+        <Text>NavBar</Text>
+    </HStack>
+  )
+}
+
+export default NavBar
+```
+
+
+# Stage 4: added themes 
+
+  ```bash
+  npx @chakra-ui/cli snippet add color-mode 
+  ```
+
+  ## Updated main.tsx to set dark mode as default:
+  ```tsx
+  import { Provider } from "@/components/ui/provider";
+  import React from "react";
+  import ReactDOM from "react-dom/client";
+  import App from "./App";
+
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
+      <Provider defaultTheme="dark">
+        <App />
+      </Provider>
+    </React.StrictMode>
+  );
+  ```
+
+## Create themes.ts in src
+```ts
+import { createSystem, defaultConfig } from "@chakra-ui/react";
+
+const customConfig = {
+  ...defaultConfig,
+  theme: {
+    tokens: {
+      colors: {
+        gray: {
+          50: { value: '#f9f9f9' },
+          100: { value: '#ededed' },
+          200: { value: '#d3d3d3' },
+          300: { value: '#b3b3b3' },
+          400: { value: '#a0a0a0' },
+          500: { value: '#898989' },
+          600: { value: '#6c6c6c' },
+          700: { value: '#202020' },
+          800: { value: '#121212' },
+          900: { value: '#111' }
+        }
+      }
+    }
+  }
+};
+
+export const system = createSystem(customConfig);
+```
+
+
+# Stage 5: Color mode switch
