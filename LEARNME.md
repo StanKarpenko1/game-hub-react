@@ -168,3 +168,28 @@ npx @chakra-ui/cli snippet add switch
 ```
 
 ## modern updates: useColorMode, colorPalette, file - ColorModeSwitch
+
+# Stage 6
+  ## Use an api key from rawg.io
+  ## install axios 
+    ```bash
+    npm i axios
+    ```
+  ## Now need to create an axios instance with customer configuration
+    - there we need to included copied api key from rawg.io
+    - create folder services in src
+    - inside - create file api-client.ts
+    - set up file
+
+# Stage 6
+## in components folder create new component GameGrid.tsx
+
+# Stage 7
+## Create Custom hook to fetch the games
+- in src create folder 'hooks'
+- create file useGames.ts
+- Move game fetching logic from GameGrid component to custom hook
+- Move Game and FetchGamesResponse interfaces to the hook
+- Add AbortController for cleanup when component unmounts
+- Import CanceledError from axios to handle request cancellation
+- Return games array and error state from hook
