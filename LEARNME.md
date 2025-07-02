@@ -169,7 +169,7 @@ npx @chakra-ui/cli snippet add switch
 
 ## modern updates: useColorMode, colorPalette, file - ColorModeSwitch
 
-# Stage 6
+# Stage 6: install axios
   ## Use an api key from rawg.io
   ## install axios 
     ```bash
@@ -181,11 +181,11 @@ npx @chakra-ui/cli snippet add switch
     - inside - create file api-client.ts
     - set up file
 
-# Stage 6
+# Stage 7: create component GameGrid
 ## in components folder create new component GameGrid.tsx
 
-# Stage 7
-## Create Custom hook to fetch the games
+# Stage 8: custom hook to fetch games
+
 - in src create folder 'hooks'
 - create file useGames.ts
 - Move game fetching logic from GameGrid component to custom hook
@@ -193,3 +193,63 @@ npx @chakra-ui/cli snippet add switch
 - Add AbortController for cleanup when component unmounts
 - Import CanceledError from axios to handle request cancellation
 - Return games array and error state from hook
+
+# Stage 9: Create GameCard component
+## create file 
+  - in components creting file GameCard.tsx
+  - pass Game object as a prompt to the component
+## passing props
+  - export Games interfase from hooks > useGames.ts (custom hook)
+
+## creating basic skeletton of the file GameCard.tsx:
+
+   ```tsx
+    import type { Game } from "@/hooks/useGames";
+    import { Card, Image } from "@chakra-ui/react";
+
+    interface Props {
+      game: Game;
+    }
+
+    const GameCard = ({ game }: Props) => {
+      return (
+        <Card.Root>
+          <Image src={game.background_image} />
+            <Card.Body>
+                <Card.Header>{game.name}</Card.Header>
+            </Card.Body>
+        </Card.Root>
+      );
+    };
+
+    export default GameCard;
+
+  ```
+
+## going back to GameGrid.tsx componet 
+- replace ul with SimpleGrid
+```tsx
+  const GameGrid = () => {
+        
+  const { games, error } = useGames();
+
+  return (
+    <>
+      {error && <Text>{error}</Text>}
+      <SimpleGrid columns={3} gap={10}>
+        {games.map((game) => (
+          <GameCard key={game.id} game={game} />
+        ))}
+      </SimpleGrid>
+    </>
+  );
+};
+```
+
+### beautify GameCard.tsx
+- adding roundness :  <Card.Root borderRadius={10} overflow='hidden'> - hidden to apply radius for upper corners
+- change size of the headings: <Card.Header fontSize='2xl'>{game.name}</Card.Header>
+- now handle the number of columns for smaller devices:
+  in GameGrid: <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5}} gap={10}>
+
+
