@@ -252,4 +252,27 @@ npx @chakra-ui/cli snippet add switch
 - now handle the number of columns for smaller devices:
   in GameGrid: <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5}} gap={10}>
 
+# Stage 10: Display icons
+## install icons: npm i react-icons
 
+## new component PlatformIconList.tsx
+- from gameCard component we are moving logic
+  ```tsx
+  {game.parent_platforms.map(({platform}) => (
+            <Text>{platform.name}</Text>
+          ))}
+
+  ```
+to PlatformIconList.tsx
+## moving to GameCard and usig the created component:
+```tsx
+  <Card.Body>
+        <Card.Header fontSize="2xl">{game.name}</Card.Header>
+        <PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} />
+      </Card.Body>
+```
+
+## replace platform names with icons
+- back to the PlatformList component, import icons
+- define map for all of the platforms
+- put everything inside HStack component to represent icons horizontally: <HStack marginY={1}>

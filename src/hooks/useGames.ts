@@ -2,20 +2,28 @@ import apiClient from "@/services/api-client";
 import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
-export interface Game {
+export interface IPlatform {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export interface IGame {
+
   id: number;
   name: string;
   background_image: string;
+  parent_platforms: { platform: IPlatform }[];
 
 }
 
 interface FetchGamesResponse {
   count: number;
-  results: Game[];
+  results: IGame[];
 }
 
 const useGames = () => {
-  const [games, setGames] = useState<Game[]>([]);
+  const [games, setGames] = useState<IGame[]>([]);
   const [error, setError] = useState("");
 
   // useEffect hook to send fetch request to the backend
