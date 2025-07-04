@@ -276,3 +276,7 @@ to PlatformIconList.tsx
 - back to the PlatformList component, import icons
 - define map for all of the platforms
 - put everything inside HStack component to represent icons horizontally: <HStack marginY={1}>
+
+# Stage 11: critic score component
+ - add metacritics to IGame and start a new component CriticScore.tsx
+ - add  <CriticScore score={game.metacritic} /> to GameCard.tsx
