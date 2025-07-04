@@ -280,3 +280,9 @@ to PlatformIconList.tsx
 # Stage 11: critic score component
  - add metacritics to IGame and start a new component CriticScore.tsx
  - add  <CriticScore score={game.metacritic} /> to GameCard.tsx
+
+# Stage 14: optimize images
+- introduce file my-game-hub/src/services/image-url.ts in service folder for handling cropped url
+- write a utility function to crop image getCroppedImageUrl
+
+# Stage 15(folowing vid number from here): 
