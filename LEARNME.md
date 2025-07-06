@@ -285,4 +285,12 @@ to PlatformIconList.tsx
 - introduce file my-game-hub/src/services/image-url.ts in service folder for handling cropped url
 - write a utility function to crop image getCroppedImageUrl
 
-# Stage 15(folowing vid number from here): 
+# Stage 15(folowing vid number from here): handle loading state
+  ## handle Loading logic
+    - in useGames : addding   const [isLoading, setLoading] = useState(false);
+    - handlre setLoading in useGames hook
+  ## handle loading component
+    - create component GameCardSkeletton.tsx
+    - this will serve as a placeholder for card components
+    - handle skeletton of the component
+    - got to GameGrid: destructure isLoading and add skeleton logic
