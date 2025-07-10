@@ -294,3 +294,14 @@ to PlatformIconList.tsx
     - this will serve as a placeholder for card components
     - handle skeletton of the component
     - got to GameGrid: destructure isLoading and add skeleton logic
+  ## remove duplicated styles
+  - create a component that would be a container for all cards: GameCardContainer.tsx
+  - now we have to pass GameCard (or other) as a child for this component
+  - in GameGrid.tsx :
+  ```tsx
+    <GameCardContainer>
+      <GameCardSkeletton key={skeleton} />
+    </GameCardContainer>
+  ```
+  # Stage 17. Fetching genres
+  - 
