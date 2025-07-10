@@ -315,3 +315,16 @@ to PlatformIconList.tsx
 - move two identical hooks to one generic. create useData.ts
 - after creating a generic hook, where we passing endpoint as a string - now we have to remove it,
   so our components to know nothing about rndpoints. go to useGenres
+
+# Stage 19. Display the genres
+- adding image_background to IGenre
+- handle in GenreList.tsx
+- in App.tsx added <GridItem area="aside" paddingX={5}> and   
+    ```tsx
+        templateColumns={{
+                base: '1fr',
+                lg: '250px 1fr'
+              }}
+    ```
+- go to gameCardContainer and remove the fixed width. 
+  

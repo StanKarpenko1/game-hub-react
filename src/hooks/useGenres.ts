@@ -5,7 +5,8 @@ import useData from "./useDatas";
 
 export interface IGenre {
     id: number;
-    name: string
+    name: string;
+    image_background: string;
 }
 
 const useGenres = () => useData<IGenre>('/genres');
