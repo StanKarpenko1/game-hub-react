@@ -327,4 +327,12 @@ to PlatformIconList.tsx
               }}
     ```
 - go to gameCardContainer and remove the fixed width. 
+
+# Stage 19. Show a spinner
+- in GenreList add  
+  const { data, isLoading } = useData<IGenre>("/genres");
+
+  if (isLoading) return <Spinner />;
+
+# Stage 21.
   
