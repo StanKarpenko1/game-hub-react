@@ -303,5 +303,10 @@ to PlatformIconList.tsx
       <GameCardSkeletton key={skeleton} />
     </GameCardContainer>
   ```
-  # Stage 17. Fetching genres
-  - 
+  
+  
+# Stage 17. Fetching genres
+- adding component GenreList.tsx
+- creating custom hook, similar to what we use for fetching games. in hooks -> useGenres.ts
+- after we done in GenreList component -> go to App.tsx and replace 'Aside' (placeholder) with GenreList component 
+   
