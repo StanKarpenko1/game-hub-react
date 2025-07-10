@@ -310,3 +310,8 @@ to PlatformIconList.tsx
 - creating custom hook, similar to what we use for fetching games. in hooks -> useGenres.ts
 - after we done in GenreList component -> go to App.tsx and replace 'Aside' (placeholder) with GenreList component 
    
+
+# Stage 18. Create generic data fetching hook.
+- move two identical hooks to one generic. create useData.ts
+- after creating a generic hook, where we passing endpoint as a string - now we have to remove it,
+  so our components to know nothing about rndpoints. go to useGenres
