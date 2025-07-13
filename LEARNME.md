@@ -335,29 +335,35 @@ to PlatformIconList.tsx
   if (isLoading) return <Spinner />;
 
 # Stage 21. Filter games by genre
- ## work in GenreList:  <Button fontSize='ld' variant="ghost">{genre.name}</Button>
- ## now we need to SHARE STATE between two compomemts - lift it up to the closest parent (App.tsx)
-  - go to App.tsx:   const [selectedGenre, setSelectedGenre] = useState<IGenre | null>(null)
-  - in GenreList:  <Button onClick={() => onSelectGenre(genre)} fontSize='ld' variant="ghost">{genre.name}</Button>
-  - in App.tsx:  <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
-  - in GameGrid: 
+  ## work in GenreList:  <Button fontSize='ld' variant="ghost">{genre.name}</Button>
+  ## now we need to SHARE STATE between two compomemts - lift it up to the closest parent (App.tsx)
+    - go to App.tsx:   const [selectedGenre, setSelectedGenre] = useState<IGenre | null>(null)
+    - in GenreList:  <Button onClick={() => onSelectGenre(genre)} fontSize='ld' variant="ghost">{genre.name}</Button>
+    - in App.tsx:  <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
+    - in GameGrid: 
+      ```tsx
+          interface Props {
+          selectedGenre: IGenre | null;
+        }
     ```tsx
-        interface Props {
-        selectedGenre: IGenre | null;
-      }
-  ```tsx
-- modifying useData hook: const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig) => {
-- in useGames hook : const useGames = (selectedGenre: IGenre | null) => useData<IGame>('/games', {params: {genres: selectedGenre?.id}});
-- in useDatas:   .get<IFetchResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig })
-- in useData we need to pass real dependencies in order page to handle re-render genres correctly:
-    const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
-      /////   }, deps ? [...deps] : [] );
-- in useGames: const useGames = (selectedGenre: IGenre | null) => useData<IGame>('/games', {params: {genres: selectedGenre?.id}}, [selectedGenre?.id]); 
-- goint back to App component:         <GameGrid selectedGenre={selectedGenre}/>
+  - modifying useData hook: const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig) => {
+  - in useGames hook : const useGames = (selectedGenre: IGenre | null) => useData<IGame>('/games', {params: {genres: selectedGenre?.id}});
+  - in useDatas:   .get<IFetchResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig })
+  - in useData we need to pass real dependencies in order page to handle re-render genres correctly:
+      const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
+        /////   }, deps ? [...deps] : [] );
+  - in useGames: const useGames = (selectedGenre: IGenre | null) => useData<IGame>('/games', {params: {genres: selectedGenre?.id}}, [selectedGenre?.id]); 
+  - goint back to App component:         <GameGrid selectedGenre={selectedGenre}/>
 
 # Stage 22. Highlight the selected genre
  - in GenreList Props:   selectedGenre?: IGenre | null; /// Button fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
- -  in App : 
+ -  in App
+
+# Stage 23. Building platform selector
+  ## add PlatformSelector component
+  ## add a hook to handle platform selsection
+   - usePlatforms
+   - go back to PlatformSelector.ysx
 
 
 
