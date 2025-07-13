@@ -9,7 +9,8 @@ export interface IPlatform {
   slug: string;
 }
 
-export interface IGame {
+export interface IGame { 
+
   id: number;
   name: string;
   background_image: string;
@@ -18,6 +19,14 @@ export interface IGame {
 
 }
 
-const useGames = (selectedGenre: IGenre | null) => useData<IGame>('/games', {params: {genres: selectedGenre?.id}}, [selectedGenre?.id]); 
+const useGames = (
+  selectedGenre: IGenre | null,
+  selectedPlatform: IPlatform | null
+) => 
+  useData<IGame>('/games', {params: {
+    genres: selectedGenre?.id,
+    parent_platforms: selectedPlatform?.id,
+  
+  }}, [selectedGenre?.id, selectedPlatform?.id]); 
 
 export default useGames;

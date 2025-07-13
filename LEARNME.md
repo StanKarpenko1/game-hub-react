@@ -363,7 +363,10 @@ to PlatformIconList.tsx
   ## add PlatformSelector component
   ## add a hook to handle platform selsection
    - usePlatforms
-   - go back to PlatformSelector.ysx
+   - go back to PlatformSelector.tsx and handle dynamic platform assignment
+
+# Stage 24. Filtering Games by platform
+ - 
 
 
 
