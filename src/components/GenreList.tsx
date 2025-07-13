@@ -5,15 +5,16 @@ import { ListItem, List, HStack, Image, Text, Spinner, Button } from "@chakra-ui
 
 interface Props {
   onSelectGenre: (genre: IGenre) => void;
+  selectedGenre?: IGenre | null;
 }
 
-export const GenreList = ({onSelectGenre}: Props) => {
+export const GenreList = ({selectedGenre, onSelectGenre}: Props) => {
   const { data, isLoading, error } = useData<IGenre>("/genres");
 
 
   if (error) return null;
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Spinner />; 
 
   return (
     <List.Root>
@@ -21,7 +22,7 @@ export const GenreList = ({onSelectGenre}: Props) => {
         <ListItem key={genre.id} paddingY='5px'>
           <HStack>
             <Image boxSize='32px' borderRadius={8} src={ getCroppedImageUrl(genre.image_background) } />
-            <Button onClick={() => onSelectGenre(genre)} fontSize='ld' variant="ghost">{genre.name}</Button>
+            <Button fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'} onClick={() => onSelectGenre(genre)} fontSize='ld' variant="ghost">{genre.name}</Button>
           </HStack>
         </ListItem>
       ))}

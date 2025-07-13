@@ -355,6 +355,10 @@ to PlatformIconList.tsx
 - in useGames: const useGames = (selectedGenre: IGenre | null) => useData<IGame>('/games', {params: {genres: selectedGenre?.id}}, [selectedGenre?.id]); 
 - goint back to App component:         <GameGrid selectedGenre={selectedGenre}/>
 
+# Stage 22. Highlight the selected genre
+ - in GenreList Props:   selectedGenre?: IGenre | null; /// Button fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
+ -  in App : 
+
 
 
 
