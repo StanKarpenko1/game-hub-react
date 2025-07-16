@@ -374,9 +374,5 @@ to PlatformIconList.tsx
 - then go to GAmeGrid and do the same
 
 
-
-
-
-
-
-  
+# Stage 26. Build sort selector
+- building game sort component. Paste the whole return statement from the PlatformSelector component
