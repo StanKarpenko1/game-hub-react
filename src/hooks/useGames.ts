@@ -1,4 +1,5 @@
 
+import type { IGameQuery } from "@/App";
 import useData from "./useDatas";
 import type { IGenre } from "./useGenres";
 
@@ -20,13 +21,12 @@ export interface IGame {
 }
 
 const useGames = (
-  selectedGenre: IGenre | null,
-  selectedPlatform: IPlatform | null
+  gameQuery: IGameQuery
 ) => 
   useData<IGame>('/games', {params: {
-    genres: selectedGenre?.id,
-    parent_platforms: selectedPlatform?.id,
+    genres: gameQuery.genre?.id,
+    parent_platforms: gameQuery.platform?.id,
   
-  }}, [selectedGenre?.id, selectedPlatform?.id]); 
+  }}, [gameQuery]); 
 
 export default useGames;

@@ -368,6 +368,11 @@ to PlatformIconList.tsx
 # Stage 24. Filtering Games by platform
  - 
 
+# Stage 25. Refactoring
+- pack created variables into an object - query object pattern
+- in App.tsx - interface IGameQuery
+- then go to GAmeGrid and do the same
+
 
 
 
