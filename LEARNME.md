@@ -391,3 +391,7 @@ to PlatformIconList.tsx
    - fix the app broken is sort by name, go to my-game-hub/src/services/image-url.ts and add  if (!url) return '';
    - one thing is missing - current sort order
    - back to app componet - 
+
+  # Stage 28. Handling games without images
+    -   for the games without image - use default placeholder
+    - go to image-url.ts
