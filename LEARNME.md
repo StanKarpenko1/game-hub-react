@@ -376,3 +376,18 @@ to PlatformIconList.tsx
 
 # Stage 26. Build sort selector
 - building game sort component. Paste the whole return statement from the PlatformSelector component
+
+# Stage 27. Sorting games
+- in SortSelector create array sortOrder for sorting values
+ ## handling array map and adding onClick to Menu.Item
+    - in order to do that we should notify consumer component
+    - creating Prop in SortSelector with onSelectedSortOrder
+    
+  ## go to the App component and add sort order to the query object
+   - adding sortOrder?: string; to IGameQuery
+   - <SortSelector onSelectedSortOrder={(sortOrder) => setGameQuery({...gameQuery, sortOrder})}/>
+   - in the next render we need to pass a new game wuery object to the GameGrid.tsx 
+   - going to useGame hook, adding to param: adding ordering: gameQuery.sortOrder,
+   - fix the app broken is sort by name, go to my-game-hub/src/services/image-url.ts and add  if (!url) return '';
+   - one thing is missing - current sort order
+   - back to app componet - 

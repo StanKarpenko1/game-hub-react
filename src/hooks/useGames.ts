@@ -26,6 +26,7 @@ const useGames = (
   useData<IGame>('/games', {params: {
     genres: gameQuery.genre?.id,
     parent_platforms: gameQuery.platform?.id,
+    ordering: gameQuery.sortOrder,
   
   }}, [gameQuery]); 
 
