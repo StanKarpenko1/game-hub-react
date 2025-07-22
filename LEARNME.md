@@ -417,3 +417,8 @@ to PlatformIconList.tsx
   - go to App.tsx - add searchtext to a query object - problem -> our search input is not a direct chield of app comoponent
   - for now adding the same prop to the NavBar - but it is a bad solution
   - pass data to backend - got to useGages hook - add search: gameQuery.searchText,
+
+# Stage 32. Adding dynamic header
+  - add GameHeading. we need to receive a game query object here
+  - in App component: add game heading
+  - align grids togather
