@@ -392,6 +392,15 @@ to PlatformIconList.tsx
    - one thing is missing - current sort order
    - back to app componet - 
 
-  # Stage 28. Handling games without images
+# Stage 28. Handling games without images
     -   for the games without image - use default placeholder
     - go to image-url.ts
+
+# Stage 30. Building search input
+-  create SearchInput.tsx
+- go to NavBar, fix the label is wrapped
+- go to ColorModeSwitch and add nowrap
+- go to navbar and delete justifyContent='space-between' from HStack
+- add icon to the search, go to SearchInput
+
+  
