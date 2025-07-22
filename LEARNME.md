@@ -403,4 +403,17 @@ to PlatformIconList.tsx
 - go to navbar and delete justifyContent='space-between' from HStack
 - add icon to the search, go to SearchInput
 
-  
+# Stage 31. Search functionality
+ - wrap all in SearchInput into the form component
+ - <form onSubmit={event => {event.preventDefault}}> - to prevent from posting to servewr
+ - using useRef hook -   const ref = useRef<HTMLInputElement>(null);
+ - assign ref to an input component :         <Input ref={ref} borderRadius={20} placeholder="Search games..." />
+ ## need to fix the inline issue because of new component form
+  - we might do it with inine style: style={{ width: "100%"}}
+  - or add to a global style sheet (better) in index.css
+## handle search
+  - introduce interface Props with onSearch in SearchInput 
+  - add       if (ref.current) onSearch(ref.current.value);
+  - go to App.tsx - add searchtext to a query object - problem -> our search input is not a direct chield of app comoponent
+  - for now adding the same prop to the NavBar - but it is a bad solution
+  - pass data to backend - got to useGages hook - add search: gameQuery.searchText,
